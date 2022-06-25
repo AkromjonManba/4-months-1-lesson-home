@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Diplomata+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pokemon-title {
+    text-align: center;
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+
+.boxes {
+    padding: 15px;
+    max-width: 300px;
+    width: 100%;
+    background-color: #F3F2F3;
+    margin: 20px 0  20px 0;
+    /* border: 2px solid #111; */
+    text-align: center;
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.item__id {
+    font-family: 'Diplomata SC', cursive;
+    font-size: 22px;
+}
