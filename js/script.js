@@ -3481,11 +3481,15 @@ for (items of data) {
   let newItem = document.createElement("li");
   let elSpan = document.createElement("span");
   let elHeading = document.createElement("h1");
+  let elWeight = document.createElement("div");
+  let elHeight = document.createElement("div");
   let elType = document.createElement("p");
   let elImg = document.createElement("img");
 
   elSpan.textContent = `##${items.id}`;
   elHeading.textContent = `${items.name}`;
+  elWeight.textContent = `Wieght: ${items.weight}`
+  elHeight.textContent = `Hieght: ${items.height}`
   elImg.src = `${items.img}`;
   elType.textContent = `${items.type}`;
 
@@ -3493,6 +3497,8 @@ for (items of data) {
   elSpan.setAttribute("class", "item__id");
   newItem.appendChild(elSpan);
   newItem.appendChild(elHeading);
+  newItem.appendChild(elWeight)
+  newItem.appendChild(elHeight)
   newItem.appendChild(elImg);
   newItem.appendChild(elType);
 
