@@ -1,5 +1,5 @@
 let elList = document.querySelector(".list"); 
-let newArray = []
+// let newArray = []
 function appendToDom(array,node) {
   for (items of array) {
     let newItem = document.createElement("li");
@@ -15,7 +15,7 @@ function appendToDom(array,node) {
     elWeight.textContent = `Wieght: ${items.weight}`;
     elHeight.textContent = `Hieght: ${items.height}`;
     elImg.src = `${items.img}`;
-    elType.textContent = `${items.type[0]}`;
+    elType.textContent = `${items.type}`;
   
     newItem.setAttribute("class", "boxes");
     elSpan.setAttribute("class", "item__id");
@@ -25,33 +25,14 @@ function appendToDom(array,node) {
     newItem.appendChild(elHeight);
     newItem.appendChild(elImg);
     newItem.appendChild(elType);
-  
     node.appendChild(newItem);
   }
-  
 }
+
+let elSelect = document.querySelector('.js-select')
 
 appendToDom(pokemons,elList)
-
-for (let i = 0; i < items.type.length; i++) {
-  if (items.type[i] != null) {
-    newArray.push(items.type[i]);
-  }
-}
-const box = [...new Set(newArray)];
-
-const elSelect = document.querySelector('.js-select');
-
-for (let i = 0; i < box.length; i++) {
-	var newOption = document.createElement('option');
-	newOption.value = box[i];
-	newOption.textContent = box[i];
-	elSelect.appendChild(newOption);
-}
-
-
 let result = [];
-
 elSelect.addEventListener('change', ()=> {
   result = []
   elList.innerHTML = ""
@@ -64,3 +45,19 @@ elSelect.addEventListener('change', ()=> {
   // console.log(result);
   appendToDom(result,elList)
 })
+
+// for (let i = 0; i < items.type.length; i++) {
+//   if (items.type[i] != null) {
+//     newArray.push(items.type[i]);
+//   }
+// }
+// const box = [...new Set(newArray)];
+
+// const elSelect = document.querySelector('.js-select');
+
+// for (let i = 0; i < box.length; i++) {
+// 	var newOption = document.createElement('option');
+// 	newOption.value = box[i];
+// 	newOption.textContent = box[i];
+// 	elSelect.appendChild(newOption);
+// }
