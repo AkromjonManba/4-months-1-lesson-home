@@ -1,6 +1,6 @@
-let elList = document.querySelector(".list"); 
+let elList = document.querySelector(".list");
 // let newArray = []
-function appendToDom(array,node) {
+function appendToDom(array, node) {
   for (items of array) {
     let newItem = document.createElement("li");
     let elSpan = document.createElement("span");
@@ -9,14 +9,14 @@ function appendToDom(array,node) {
     let elHeight = document.createElement("div");
     let elType = document.createElement("p");
     let elImg = document.createElement("img");
-  
+
     elSpan.textContent = `##${items.id}`;
     elHeading.textContent = `${items.name}`;
     elWeight.textContent = `Wieght: ${items.weight}`;
     elHeight.textContent = `Hieght: ${items.height}`;
     elImg.src = `${items.img}`;
     elType.textContent = `${items.type}`;
-  
+
     newItem.setAttribute("class", "boxes");
     elSpan.setAttribute("class", "item__id");
     newItem.appendChild(elSpan);
@@ -29,35 +29,32 @@ function appendToDom(array,node) {
   }
 }
 
-let elSelect = document.querySelector('.js-select')
+let elSelect = document.querySelector(".js-select");
 
-appendToDom(pokemons,elList)
+appendToDom(pokemons, elList);
 let result = [];
-elSelect.addEventListener('change', ()=> {
-  result = []
-  elList.innerHTML = ""
+elSelect.addEventListener("change", () => {
+  result = [];
+  elList.innerHTML = "";
   let elSelectVal = elSelect.value;
-  pokemons. forEach((poc)=>{
-    if(poc.type.includes(elSelectVal)){
-      result.push(poc)
+  pokemons.forEach((poc) => {
+    if (poc.type.includes(elSelectVal)) {
+      result.push(poc);
     }
-  })
-  // console.log(result);
-  appendToDom(result,elList)
-})
+  });
+  appendToDom(result, elList);
+});
 
-// for (let i = 0; i < items.type.length; i++) {
-//   if (items.type[i] != null) {
-//     newArray.push(items.type[i]);
-//   }
-// }
-// const box = [...new Set(newArray)];
+let optionList = new Set();
 
-// const elSelect = document.querySelector('.js-select');
+pokemons.forEach((item) => {
+  optionList.add(...item.type);
+});
 
-// for (let i = 0; i < box.length; i++) {
-// 	var newOption = document.createElement('option');
-// 	newOption.value = box[i];
-// 	newOption.textContent = box[i];
-// 	elSelect.appendChild(newOption);
-// }
+optionList.forEach((elment) => {
+  let newOption = document.createElement("option");
+  newOption.textContent = elment;
+  newOption.value = elment;
+  
+  elSelect.appendChild(newOption)
+});
